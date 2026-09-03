@@ -22,7 +22,7 @@ def get_valid_str(prompt, valid_options):
         print(f"Ogiltigt val. Välj mellan: {', '.join(valid_options)}")
 
 # Genererar en mattefråga som inte har använts för många gånger
-def generate_question(operator, value, used_questions, max_occurrences):
+def generate_question(value, used_questions, max_occurrences):
     while True:
         a = random.randint(0, 12)
         
@@ -91,7 +91,7 @@ def run_game():
         # Frågeloopen
         for question_num in range(1, settings["num_questions"] + 1):
             print(f"\nFråga {question_num} av {settings['num_questions']}")
-            a, b = generate_question(settings["operator"], settings["value"], used_questions, max_occurrences)
+            a, b = generate_question(settings["value"], used_questions, max_occurrences)
 
             if not ask_math_question(settings["operator"], a, b):
                 print("Fel svar! Du förlorade.")
